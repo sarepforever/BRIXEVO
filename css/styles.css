@@ -10943,15 +10943,18 @@ p {
   }
 }
 header.masthead {
+  min-height: 100vh;
   padding-top: 10.5rem;
   padding-bottom: 6rem;
   text-align: center;
   color: #fff;
-  background-image: url("../assets/img/Fondo.png");
+  background-image: url("../assets/img/Fondo-Movil.png");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  display: flex;
+  align-items: center;
 }
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
@@ -10970,6 +10973,8 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
   header.masthead {
+    background-image: url("../assets/img/Fondo.png");
+    min-height: 100vh;
     padding-top: 17rem;
     padding-bottom: 12.5rem;
   }
