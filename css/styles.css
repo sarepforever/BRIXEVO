@@ -10991,11 +10991,147 @@ header.masthead .masthead-heading {
     margin-bottom: 4rem;
   }
 }
-#portfolio .portfolio-item {
-  max-width: 26rem;
-  margin-left: auto;
-  margin-right: auto;
+/* ========== Modern Portfolio / Proyectos ========== */
+
+/* Scroll-reveal animation */
+@keyframes proyectoFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+.proyecto-col {
+  animation: proyectoFadeUp 0.6s ease both;
+}
+
+/* Card */
+.proyecto-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s cubic-bezier(.25,.8,.25,1), box-shadow 0.35s cubic-bezier(.25,.8,.25,1);
+}
+.proyecto-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
+}
+
+/* Image wrapper + overlay */
+.proyecto-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+}
+.proyecto-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.proyecto-card:hover .proyecto-img-wrapper img {
+  transform: scale(1.08);
+}
+
+.proyecto-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.75) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.proyecto-card:hover .proyecto-overlay {
+  opacity: 1;
+}
+.proyecto-overlay-content {
+  color: #fff;
+  transform: translateY(12px);
+  transition: transform 0.4s ease;
+}
+.proyecto-card:hover .proyecto-overlay-content {
+  transform: translateY(0);
+}
+.proyecto-overlay-content p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+  line-height: 1.4;
+}
+
+.proyecto-categoria {
+  display: inline-block;
+  background: rgba(255, 200, 0, 0.9);
+  color: #212529;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Info section */
+.proyecto-info {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+.proyecto-info h4 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.25rem;
+  color: #212529;
+}
+.proyecto-ubicacion {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-bottom: 0.85rem;
+}
+.proyecto-ubicacion i {
+  color: #ffc800;
+}
+
+/* Review / stars */
+.proyecto-review {
+  border-top: 1px solid #e9ecef;
+  padding-top: 0.85rem;
+}
+.proyecto-estrellas {
+  color: #ffc800;
+  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
+}
+.proyecto-estrellas i {
+  margin-right: 2px;
+}
+.proyecto-testimonio {
+  font-style: italic;
+  font-size: 0.88rem;
+  color: #495057;
+  margin-bottom: 0.25rem;
+  line-height: 1.45;
+}
+.proyecto-cliente {
+  font-size: 0.8rem;
+  color: #adb5bd;
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+  .proyecto-img-wrapper {
+    height: 220px;
+  }
+}
+
+/* ========== End Modern Portfolio ========== */
 
 /* Service Images Styles */
 .service-image-container {
