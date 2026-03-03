@@ -10993,6 +10993,93 @@ header.masthead .masthead-heading {
 }
 /* ========== Modern Portfolio / Proyectos ========== */
 
+/* Carousel */
+.portfolio-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.portfolio-carousel-viewport {
+  overflow: hidden;
+  flex: 1;
+  border-radius: 12px;
+}
+.portfolio-carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.45s cubic-bezier(.25,.8,.25,1);
+}
+.portfolio-carousel-slide {
+  flex-shrink: 0;
+}
+
+/* Carousel arrows */
+.portfolio-carousel-arrow {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+  background: #fff;
+  color: #212529;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+.portfolio-carousel-arrow:hover {
+  background: #F8680A;
+  color: #fff;
+  border-color: #F8680A;
+  box-shadow: 0 4px 16px rgba(248,104,10,0.3);
+}
+.portfolio-carousel-prev { margin-right: 16px; }
+.portfolio-carousel-next { margin-left: 16px; }
+
+/* Dots */
+.portfolio-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 2rem;
+}
+.portfolio-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ced4da;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+.portfolio-dot.active {
+  background: #F8680A;
+  border-color: #F8680A;
+  transform: scale(1.2);
+}
+.portfolio-dot:hover {
+  border-color: #F8680A;
+}
+
+@media (max-width: 767.98px) {
+  .portfolio-carousel-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+  .portfolio-carousel-prev { margin-right: 10px; }
+  .portfolio-carousel-next { margin-left: 10px; }
+  .portfolio-carousel-track {
+    gap: 16px;
+  }
+}
+
 /* Scroll-reveal animation */
 @keyframes proyectoFadeUp {
   from {
@@ -11183,6 +11270,49 @@ header.masthead .masthead-heading {
   opacity: 1;
   transform: scale(1.15);
 }
+
+/* Navigation arrows */
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  z-index: 10000;
+}
+.lightbox-arrow:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+.lightbox-prev { left: 1.5rem; }
+.lightbox-next { right: 1.5rem; }
+
+/* Counter */
+.lightbox-counter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  z-index: 10000;
+}
+
 @media (max-width: 767.98px) {
   .lightbox-img {
     max-width: 98vw;
@@ -11193,6 +11323,17 @@ header.masthead .masthead-heading {
     top: 0.75rem;
     right: 0.75rem;
     font-size: 2.2rem;
+  }
+  .lightbox-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  .lightbox-prev { left: 0.75rem; }
+  .lightbox-next { right: 0.75rem; }
+  .lightbox-counter {
+    bottom: 1rem;
+    font-size: 0.8rem;
   }
 }
 /* ========== End Lightbox Modal ========== */
