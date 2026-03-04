@@ -364,6 +364,10 @@
                 return 1;
             }
 
+            function getGap() {
+                return window.innerWidth < 768 ? 16 : 24;
+            }
+
             function getTotalPages() {
                 return Math.ceil(slides.length / getPerPage());
             }
@@ -389,7 +393,7 @@
                 if (page < 0) page = total - 1;
                 if (page >= total) page = 0;
                 currentPage = page;
-                var gapPx = 24;
+                var gapPx = getGap();
                 var slideWidth = (track.parentElement.offsetWidth - gapPx * (perPage - 1)) / perPage;
                 var offset = currentPage * perPage * (slideWidth + gapPx);
                 track.style.transform = 'translateX(-' + offset + 'px)';
@@ -412,7 +416,7 @@
 
             function initCarousel() {
                 var perPage = getPerPage();
-                var gapPx = 24;
+                var gapPx = getGap();
                 var slideWidth = (track.parentElement.offsetWidth - gapPx * (perPage - 1)) / perPage;
                 slides.forEach(function (s) {
                     s.style.minWidth = slideWidth + 'px';
