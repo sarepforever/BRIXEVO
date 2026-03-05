@@ -161,8 +161,21 @@ window.addEventListener('DOMContentLoaded', event => {
     var lbNext = modal.querySelector('.lightbox-next');
     var counter = document.getElementById('lightboxCounter');
 
+    var caption = document.getElementById('lightboxCaption');
+
+    var cards = Array.from(document.querySelectorAll('.proyecto-card'));
     var wrappers = Array.from(document.querySelectorAll('.proyecto-img-wrapper'));
     var images = wrappers.map(function (w) { return w.querySelector('img').src; });
+    var projectData = cards.map(function (card) {
+        var title = card.querySelector('.proyecto-info h4');
+        var ubicacion = card.querySelector('.proyecto-ubicacion');
+        var overlay = card.querySelector('.proyecto-overlay-content p');
+        return {
+            title: title ? title.textContent : '',
+            location: ubicacion ? ubicacion.textContent.trim() : '',
+            desc: overlay ? overlay.textContent : ''
+        };
+    });
     var lbIndex = 0;
 
     function showImage(index) {
@@ -175,6 +188,17 @@ window.addEventListener('DOMContentLoaded', event => {
             modalImg.style.transform = 'scale(1)';
         }, 180);
         counter.textContent = (lbIndex + 1) + ' / ' + images.length;
+
+        // Update caption with project info
+        if (projectData[lbIndex]) {
+            var data = projectData[lbIndex];
+            caption.innerHTML =
+                '<div class="lightbox-caption-title">' + data.title + '</div>' +
+                '<div class="lightbox-caption-location"><i class="fas fa-map-marker-alt me-1"></i>' + data.location + '</div>' +
+                '<div class="lightbox-caption-desc">' + data.desc + '</div>';
+        } else {
+            caption.innerHTML = '';
+        }
     }
 
     wrappers.forEach(function (wrapper, i) {

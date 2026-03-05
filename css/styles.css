@@ -11299,6 +11299,46 @@ header.masthead .masthead-heading {
 .lightbox-prev { left: 1.5rem; }
 .lightbox-next { right: 1.5rem; }
 
+/* Caption */
+.lightbox-caption {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Inter", "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  z-index: 10000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lightbox-modal.active .lightbox-caption {
+  opacity: 1;
+}
+.lightbox-caption .lightbox-caption-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+.lightbox-caption .lightbox-caption-location {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.3rem;
+}
+.lightbox-caption .lightbox-caption-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 /* Counter */
 .lightbox-counter {
   position: absolute;
@@ -11334,6 +11374,15 @@ header.masthead .masthead-heading {
   .lightbox-counter {
     bottom: 1rem;
     font-size: 0.8rem;
+  }
+  .lightbox-caption {
+    bottom: 3rem;
+    font-size: 0.82rem;
+    padding: 0.6rem 1rem;
+    width: 95%;
+  }
+  .lightbox-caption .lightbox-caption-title {
+    font-size: 0.92rem;
   }
 }
 /* ========== End Lightbox Modal ========== */
